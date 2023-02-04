@@ -16,23 +16,25 @@ Caso não possua o yarn instalado, utilize o comando abaixo para instalar global
 
 ````
 npm install --global yarn
-
+````
 # Rotas
 
-User:
 ````
+USER:
+
 get("/user")
 post("/user")
 patch("/user")
 delete("/user/:id")
-````
-Contact:
-````
+
+CONTACT:
+
 get("/contact")
 post("/contact")
 patch("/contact/:id")
 delete("contact/:id")
-````
-Login:
-````
+
+LOGIN:
+
 post("/login")
+````
