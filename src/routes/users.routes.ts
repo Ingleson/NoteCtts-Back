@@ -6,7 +6,7 @@ const userRoutes = Router();
 
 userRoutes.post("", createUserController);
 userRoutes.get("", ensureAuthMiddleware, listUsersController);
-userRoutes.patch("/:id", ensureAuthMiddleware, updateUserController);
+userRoutes.patch("", ensureAuthMiddleware, updateUserController);
 userRoutes.delete("/:id", ensureAuthMiddleware, deleteUserController);
 
 

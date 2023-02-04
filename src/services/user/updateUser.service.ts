@@ -10,8 +10,7 @@ const updateUserService = async (
   email: string,
   password: string,
   number: string,
-  id: string,
-  loggedUser: IUserLogged
+  id: string
 ): Promise<IUser> => {
   const userRepository =  AppDataSource.getRepository(User);
 
@@ -35,10 +34,6 @@ const updateUserService = async (
     }
   }
 
-  if(loggedUser.id !== id) {
-    throw new AppError(401, "No permission")
-  }
-
   if(password && compareSync(password, findUser.password)) {
     throw new AppError(409, "Use a different password")
   }
@@ -48,7 +43,7 @@ const updateUserService = async (
   await userRepository.update(id, {
     full_name: full_name || findUser.full_name,
     email: email || findUser.email,
-    password: password || findUser.password,
+    password: hashedPassword || findUser.password,
     number: number || findUser.number
   })
 
