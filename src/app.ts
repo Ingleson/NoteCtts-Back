@@ -5,8 +5,13 @@ import express from 'express';
 import appRoutes from './routes';
 import errorMiddleware from './middlewares/error/error.middleware';
 
+import swaggerUi from "swagger-ui-express";
+import swaggerDocs from "./swagger.json";
+
 const app = express();
 app.use(express.json());
+
+app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerDocs))
 
 appRoutes(app);
 app.use(errorMiddleware);

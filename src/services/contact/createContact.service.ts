@@ -23,7 +23,7 @@ const createContactService = async ({
 
   for (let i = 0; i < findUser.contacts.length; i++) {
     if(findUser.contacts[i].email == email || findUser.contacts[i].number == number) {
-      throw new AppError(404, "contact Already Exists")
+      throw new AppError(400, "contact Already Exists")
     }
   }
 
