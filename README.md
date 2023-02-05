@@ -37,4 +37,8 @@ delete("contact/:id")
 LOGIN:
 
 post("/login")
+
+DOCS:
+
+get("/api-docs")
 ````
