@@ -15,8 +15,9 @@ const createUserController = async (req: Request, res: Response) => {
 }
 
 const listUsersController = async (req: Request, res: Response) => {
-  const users = await listUsersService();
-  return res.json(instanceToPlain(users));
+  const userId: string = req.user.id;
+  const user = await listUsersService(userId);
+  return res.json(instanceToPlain(user));
 }
 
 const updateUserController = async (req: Request, res: Response) => {
