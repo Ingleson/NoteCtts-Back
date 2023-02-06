@@ -12,10 +12,12 @@ import swaggerDocs from "./swagger.json";
 const app = express();
 app.use(express.json());
 
+app.use(cors());
 app.use((req, res, next) => {
-  res.header("Acess-Control-Allow-Origin", "*")
-  res.header("Acess-Control-Allow-Methods", "GET, POST, PATCH, DELETE")
-  app.use(cors());
+  res.header("Access-Control-Allow-Origin", "*")
+  res.header("Access-Control-Allow-Methods", 'GET, POST, PATCH, DELETE')
+
+  next();
 })
 
 app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerDocs))
