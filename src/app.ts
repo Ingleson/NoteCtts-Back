@@ -2,6 +2,7 @@ import "express-async-errors";
 import "dotenv/config";
 
 import express from 'express';
+import cors from 'cors';
 import appRoutes from './routes';
 import errorMiddleware from './middlewares/error/error.middleware';
 
@@ -10,6 +11,11 @@ import swaggerDocs from "./swagger.json";
 
 const app = express();
 app.use(express.json());
+
+app.use((req, res, next) => {
+  res.header("Acess-Control-Allow-Origin", "*")
+  app.use(cors());
+})
 
 app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerDocs))
 
