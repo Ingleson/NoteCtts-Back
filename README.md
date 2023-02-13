@@ -17,6 +17,16 @@ Caso não possua o yarn instalado, utilize o comando abaixo para instalar global
 ````
 npm install --global yarn
 ````
+# Criar Migration
+````
+yarn typeorm migration:create src/migrations/initialMigration  
+````
+
+# Rodar Migration
+````
+yarn typeorm migration:run -d src/data-source.ts
+````
+
 # Rotas
 
 ````
